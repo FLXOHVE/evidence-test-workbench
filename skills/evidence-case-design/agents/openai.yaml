@@ -1,0 +1,4 @@
+interface:
+  display_name: "通用测试用例设计"
+  short_description: "从需求生成有证据关联的测试用例草稿，并保留歧义、覆盖缺口与待确认问题"
+  default_prompt: "Use $evidence-case-design to turn these requirements into traceable test-case drafts and list unresolved expectations."

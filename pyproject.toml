@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evidence-test-workbench"
+version = "0.1.0"
+description = "Offline compiler for evidence-linked test case drafts"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = []
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Testing",
+]
+
+[project.scripts]
+evidence-test-workbench = "evidence_test_workbench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["evidence_test_workbench*"]
+
+[tool.setuptools.package-data]
+evidence_test_workbench = ["data/*.json", "data/*.md"]

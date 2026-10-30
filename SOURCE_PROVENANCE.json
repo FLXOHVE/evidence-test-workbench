@@ -1,0 +1,173 @@
+{
+  "source_description": "Author-provided requirements-to-testing workbench snapshot; generic compiler dependency closure only.",
+  "extraction_date": "2026-10-30",
+  "files": [
+    {
+      "source": "test-agent/testcase_engine/case_decomposition.py",
+      "destination": "evidence_test_workbench/case_decomposition.py",
+      "original_sha256": "be84904f19b9241630ecd65429aeb95066f8d9a11646f897327e83f982ea6056",
+      "current_sha256": "be84904f19b9241630ecd65429aeb95066f8d9a11646f897327e83f982ea6056",
+      "modified": false
+    },
+    {
+      "source": "test-agent/testcase_engine/coverage_closure.py",
+      "destination": "evidence_test_workbench/coverage_closure.py",
+      "original_sha256": "29227c07479a4233e40ebd39287fb5b39a44f5871fb05c1b8c6ed937f4cbc8d5",
+      "current_sha256": "62583b2d523222fb3a7078471b52700597b7c29820efbf736ef5e165466fd740",
+      "modified": true,
+      "changes": [
+        "Normalize line endings to LF; .gitattributes preserves these bytes across platforms."
+      ]
+    },
+    {
+      "source": "test-agent/testcase_engine/coverage_plan.py",
+      "destination": "evidence_test_workbench/coverage_plan.py",
+      "original_sha256": "1dd26bfdd5dff1172639325484e21ba7d261ac623fb2f050e4f01640d1a9c856",
+      "current_sha256": "1dd26bfdd5dff1172639325484e21ba7d261ac623fb2f050e4f01640d1a9c856",
+      "modified": false
+    },
+    {
+      "source": "test-agent/testcase_engine/evidence.py",
+      "destination": "evidence_test_workbench/evidence.py",
+      "original_sha256": "91d5698f5cf9ba9243fb05816f83c9aee56e381432bc724a4aea1a5ed295fbca",
+      "current_sha256": "91d5698f5cf9ba9243fb05816f83c9aee56e381432bc724a4aea1a5ed295fbca",
+      "modified": false
+    },
+    {
+      "source": "test-agent/testcase_engine/execution_contract.py",
+      "destination": "evidence_test_workbench/execution_contract.py",
+      "original_sha256": "dd61a684a2b4eadcef52fdd9835d8e673eea746111473e1942cb8e6ae8ff4dee",
+      "current_sha256": "dd61a684a2b4eadcef52fdd9835d8e673eea746111473e1942cb8e6ae8ff4dee",
+      "modified": false
+    },
+    {
+      "source": "test-agent/testcase_engine/module_generation.py",
+      "destination": "evidence_test_workbench/module_generation.py",
+      "original_sha256": "0afa27d00ddd6021f59a20cbc4c71cd741ba2afe350573814d140300bb8c824f",
+      "current_sha256": "5cffd99d83dd05853ad84c96a35fc3a0a560b344eb2ecad5c9affd31700952c7",
+      "modified": true,
+      "changes": [
+        "Validate model is an object before membership checks; malformed input raises GenerationError.",
+        "Reject blank rendered template text so empty bindings cannot create empty expected results, titles, actions or preparation text.",
+        "Validate coverage obligation status against the original design-model enum to prevent silent scope loss.",
+        "Require behavior outcomes to be a nonempty array; entry type/content remains validated by the template renderer."
+      ]
+    },
+    {
+      "source": "test-agent/testcase_engine/relationship_coverage.py",
+      "destination": "evidence_test_workbench/relationship_coverage.py",
+      "original_sha256": "91b902b2e15e004ae3ba205e3c78cd409d355a2f9ee3e6508f1a482a923dee22",
+      "current_sha256": "91b902b2e15e004ae3ba205e3c78cd409d355a2f9ee3e6508f1a482a923dee22",
+      "modified": false
+    },
+    {
+      "source": "test-agent/testcase_engine/relationship_exploration.py",
+      "destination": "evidence_test_workbench/relationship_exploration.py",
+      "original_sha256": "9d2ccf8b4327c22c2f9baffbeef2c488b79fbfb8147e70d7028b11161d46a937",
+      "current_sha256": "9d2ccf8b4327c22c2f9baffbeef2c488b79fbfb8147e70d7028b11161d46a937",
+      "modified": false
+    },
+    {
+      "source": "test-agent/testcase_engine/scenario_drafts.py",
+      "destination": "evidence_test_workbench/scenario_drafts.py",
+      "original_sha256": "f9017c9c69a76b9b275f68cdf450b5a04917245b32f9aeeb3fc6c2d3230f52f3",
+      "current_sha256": "f9017c9c69a76b9b275f68cdf450b5a04917245b32f9aeeb3fc6c2d3230f52f3",
+      "modified": false
+    },
+    {
+      "source": "test-agent/testcase_engine/source_branch_contract.py",
+      "destination": "evidence_test_workbench/source_branch_contract.py",
+      "original_sha256": "815334393e31e4a102e856db044a5ea9fbb7279c86dd399eccb3fb868c270b0f",
+      "current_sha256": "815334393e31e4a102e856db044a5ea9fbb7279c86dd399eccb3fb868c270b0f",
+      "modified": false
+    },
+    {
+      "source": "test-agent/testcase_engine/source_scope.py",
+      "destination": "evidence_test_workbench/source_scope.py",
+      "original_sha256": "a744770d03a067f1edee3781669768741b4bdaca5396ee1551d00479fca2612d",
+      "current_sha256": "a744770d03a067f1edee3781669768741b4bdaca5396ee1551d00479fca2612d",
+      "modified": false
+    },
+    {
+      "source": "test-agent/testcase_engine/usage_coverage.py",
+      "destination": "evidence_test_workbench/usage_coverage.py",
+      "original_sha256": "ae250a139b13184452bb4e6c402824fb6ba61ac5e6be98c912b3f116e9711bcd",
+      "current_sha256": "ae250a139b13184452bb4e6c402824fb6ba61ac5e6be98c912b3f116e9711bcd",
+      "modified": false
+    },
+    {
+      "source": "test-agent/testcase_engine/usage_journeys.py",
+      "destination": "evidence_test_workbench/usage_journeys.py",
+      "original_sha256": "ebcb746e5ce66e554ea4838866c92e966a524137dfe4726c72d5e1f498f35566",
+      "current_sha256": "ebcb746e5ce66e554ea4838866c92e966a524137dfe4726c72d5e1f498f35566",
+      "modified": false
+    }
+  ],
+  "added_for_portable_candidate": [
+    "CLI and Markdown/JSON report export",
+    "Explicit fictional task-list fixture and requirements",
+    "Offline regression tests",
+    "Python packaging and GitHub Actions workflow"
+  ],
+  "license_status": {
+    "project_license": "MIT",
+    "ownership_basis": "Author confirmed these projects are their own code on 2026-10-31. Third-party licenses remain separate."
+  },
+  "added_files": [
+    ".gitattributes",
+    ".github/workflows/ci.yml",
+    ".gitignore",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "README.zh-CN.md",
+    "docs/design.md",
+    "docs/example-output.md",
+    "docs/publication.md",
+    "evidence_test_workbench/__init__.py",
+    "evidence_test_workbench/__main__.py",
+    "evidence_test_workbench/cli.py",
+    "evidence_test_workbench/data/requirements.md",
+    "evidence_test_workbench/data/task-list.contract.json",
+    "pyproject.toml",
+    "skills/evidence-case-design/LICENSE",
+    "skills/evidence-case-design/SKILL.md",
+    "skills/evidence-case-design/agents/openai.yaml",
+    "skills/evidence-case-design/assets/requirements.md",
+    "skills/evidence-case-design/assets/task-list.contract.json",
+    "skills/evidence-case-design/references/case-format.md",
+    "skills/evidence-case-design/references/compiler.md",
+    "tests/test_compiler.py",
+    "tests/test_skill_package.py",
+    "tools/package_skill.py"
+  ],
+  "added_file_sha256": {
+    ".gitattributes": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+    ".github/workflows/ci.yml": "96181ae4f6cd86792db9d9b163da76c896e2d018c0924fab2055d2df43fb6ff3",
+    ".gitignore": "05a5dd39998353efd25447a9a9842f2113260267119d3670021178f629110008",
+    "CHANGELOG.md": "ef93ee262cd1f92723f05246c4d355bd1ea8133cc4b82d9a85dab90d019b9ad8",
+    "LICENSE": "b4870729ed3fcd5f58b512800d0831f780cc6db98cda17a356e5d1c9f2401ab3",
+    "README.md": "c17be2f6b9fcf36377cf948826b47ce2ed0341beb6ebf735e4e38ee3fc81ffbd",
+    "README.zh-CN.md": "5f069f3336d6ad9b5993538c8de08eae9c900a632643a13fcce19c38f610f2eb",
+    "docs/design.md": "578a7ec96ba39656b6cc6d4b7d883c6e1f13bca423e693f8ce13e18eade0ac5a",
+    "docs/example-output.md": "3c8972c99ff72ee28f6a5b5358ec127eb3ca4c5295f007605d6018d4b1b343f3",
+    "docs/publication.md": "1a45f1c3a2f4001a1af7091c27a191141f15fb916c5b16e1ae1b7f6b5589b5fd",
+    "evidence_test_workbench/__init__.py": "0f37edc89d668944685a29203d27647797daad875c7a17b8cd67ce7efe6d9eb5",
+    "evidence_test_workbench/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "evidence_test_workbench/cli.py": "f125598f446183a53cbd575a25e7b295a714b7f4cc15a9108075352e089497cf",
+    "evidence_test_workbench/data/requirements.md": "29e25b5037f347105a14ba55785b9b2ff458a88ba6dc26a44f006f5573cfecf8",
+    "evidence_test_workbench/data/task-list.contract.json": "89dc51a7f89a9933bfcb85a0d61c95b1303e2ba213f19b37734c3871a79c7ea2",
+    "pyproject.toml": "5b1bb1531819141f7f800e627e87869db75c4aadaeead5f07507204502fb24f4",
+    "skills/evidence-case-design/LICENSE": "b4870729ed3fcd5f58b512800d0831f780cc6db98cda17a356e5d1c9f2401ab3",
+    "skills/evidence-case-design/SKILL.md": "2943fc51125d0ee812eab6434a955de6a5d48ce733ba70b88c594de53b5726d3",
+    "skills/evidence-case-design/agents/openai.yaml": "f173a6bcca187d5130acc1b81f7873135babea8b0c94a16ea039163cffc321a6",
+    "skills/evidence-case-design/assets/requirements.md": "29e25b5037f347105a14ba55785b9b2ff458a88ba6dc26a44f006f5573cfecf8",
+    "skills/evidence-case-design/assets/task-list.contract.json": "89dc51a7f89a9933bfcb85a0d61c95b1303e2ba213f19b37734c3871a79c7ea2",
+    "skills/evidence-case-design/references/case-format.md": "a3a0e20095fb7d22fa7aae4f10b9f2c78e223616680eb2d3d74867f3306ac2cc",
+    "skills/evidence-case-design/references/compiler.md": "6582bda631aa3554dc458ef2634505289d24141f617031470f90f216b912ad34",
+    "tests/test_compiler.py": "bfd63d2a28dd84e9d2cfc3f61b843a11c76693f3a1d2cd75b4ce13596830eace",
+    "tests/test_skill_package.py": "55600e4c9babe72cb7ff0438f2ee9e76fe26c0e05c71a604cc5af87377f5dde5",
+    "tools/package_skill.py": "ebf957a4074a465811363854653119ff3256ddd17555291b165783d3c99a1194"
+  },
+  "hash_basis": "Original hashes preserve the input snapshot. Current and added-file hashes describe Git blob bytes, before checkout line-ending conversion."
+}

@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "module": "Synthetic task list",
+  "case_namespace": "TASK",
+  "model": {
+    "schema_version": 2,
+    "analysis_id": "synthetic-task-list-v1",
+    "produced_by": "explicit-synthetic-fixture",
+    "target": {
+      "product": "fictional-task-list",
+      "release": "v1",
+      "configuration": "offline synthetic fixture"
+    },
+    "source_claims": [
+      {
+        "id": "CL-FILTER",
+        "source_id": "synthetic:task-list-v1",
+        "quote": "R1. The task list offers All, Active and Completed filters. Selecting a filter shows only tasks matching that filter; All shows every non-archived task.",
+        "statement": "Filter selection controls the visible task rows.",
+        "semantic_status": "confirmed",
+        "claim_type": "behavior"
+      },
+      {
+        "id": "CL-COMPLETE",
+        "source_id": "synthetic:task-list-v1",
+        "quote": "R2. An active task can be marked complete. The row then shows Completed.",
+        "statement": "An active task can be marked complete.",
+        "semantic_status": "confirmed",
+        "claim_type": "behavior"
+      },
+      {
+        "id": "CL-ARCHIVE",
+        "source_id": "synthetic:task-list-v1",
+        "quote": "R3. A completed task can be archived. The task disappears from the default list and appears in the archive.",
+        "statement": "Archiving moves a completed task out of the default list into the archive.",
+        "semantic_status": "confirmed",
+        "claim_type": "behavior"
+      },
+      {
+        "id": "CL-RESET",
+        "source_id": "synthetic:task-list-v1",
+        "quote": "R4. The test fixture can be reset to two active tasks and one completed task.",
+        "statement": "The fixture can reset its sample state.",
+        "semantic_status": "confirmed",
+        "claim_type": "constraint"
+      }
+    ],
+    "behaviors": [
+      {
+        "id": "B-FILTER",
+        "state": "Sample tasks loaded",
+        "trigger": "Select the {filter} filter.",
+        "outcomes": [
+          "{expected}"
+        ],
+        "claim_ids": [
+          "CL-FILTER"
+        ]
+      },
+      {
+        "id": "B-COMPLETE",
+        "state": "Sample tasks loaded",
+        "trigger": "Mark active task A as complete.",
+        "outcomes": [
+          "Task A shows Completed."
+        ],
+        "next_state": "Task A completed",
+        "claim_ids": [
+          "CL-COMPLETE"
+        ]
+      },
+      {
+        "id": "B-ARCHIVE",
+        "state": "Task A completed",
+        "trigger": "Archive task A.",
+        "outcomes": [
+          "Task A is absent from the default list and present in the archive."
+        ],
+        "claim_ids": [
+          "CL-ARCHIVE"
+        ]
+      }
+    ],
+    "dependency_relations": [
+      {
+        "id": "REL-SYNC",
+        "capability": "External synchronization",
+        "relation": "Effect of archiving on external synchronization is unspecified.",
+        "claim_ids": [],
+        "semantic_status": "proposal"
+      }
+    ],
+    "coverage_obligations": [
+      {
+        "id": "O-FILTER",
+        "origin": "lifecycle",
+        "objective": "Check each explicitly specified filter.",
+        "status": "planned",
+        "behavior_ids": [
+          "B-FILTER"
+        ],
+        "relation_ids": [],
+        "catalog_refs": []
+      },
+      {
+        "id": "O-ARCHIVE",
+        "origin": "lifecycle",
+        "objective": "Complete and archive an active task through connected states.",
+        "status": "planned",
+        "behavior_ids": [
+          "B-COMPLETE",
+          "B-ARCHIVE"
+        ],
+        "relation_ids": [],
+        "catalog_refs": []
+      },
+      {
+        "id": "O-SYNC",
+        "origin": "dependency",
+        "objective": "Determine archive synchronization behavior.",
+        "status": "gap_rule",
+        "rationale": "R5 leaves the external synchronization rule undefined.",
+        "behavior_ids": [],
+        "relation_ids": [
+          "REL-SYNC"
+        ],
+        "catalog_refs": []
+      }
+    ],
+    "open_questions": [
+      {
+        "id": "Q-SYNC",
+        "question": "How does archiving affect the external synchronized copy?",
+        "category": "product_rule",
+        "blocking": true,
+        "affected_obligation_ids": [
+          "O-SYNC"
+        ]
+      }
+    ],
+    "cases": []
+  },
+  "preparations": [
+    {
+      "id": "P-RESET",
+      "state": "Sample tasks loaded",
+      "setup": "Reset the synthetic fixture to active tasks A and B and completed task C.",
+      "claim_ids": [
+        "CL-RESET"
+      ]
+    }
+  ],
+  "recipes": [
+    {
+      "id": "filter",
+      "obligation_id": "O-FILTER",
+      "title": "Filter tasks with {filter}",
+      "path": [
+        "B-FILTER"
+      ],
+      "preparation_ids": [
+        "P-RESET"
+      ],
+      "priority": "Y1",
+      "priority_reason": "Incorrect filtering hides tasks needed for daily work.",
+      "smoke": {
+        "selected": true,
+        "reason": "Covers the basic list navigation.",
+        "safety_regression": false
+      },
+      "variants": [
+        {
+          "id": "all",
+          "bindings": {
+            "filter": "All",
+            "expected": "Tasks A, B and C are visible."
+          }
+        },
+        {
+          "id": "active",
+          "bindings": {
+            "filter": "Active",
+            "expected": "Only tasks A and B are visible."
+          }
+        },
+        {
+          "id": "completed",
+          "bindings": {
+            "filter": "Completed",
+            "expected": "Only task C is visible."
+          }
+        }
+      ]
+    },
+    {
+      "id": "archive",
+      "obligation_id": "O-ARCHIVE",
+      "title": "Complete and archive an active task",
+      "path": [
+        "B-COMPLETE",
+        "B-ARCHIVE"
+      ],
+      "preparation_ids": [
+        "P-RESET"
+      ],
+      "priority": "Y1",
+      "priority_reason": "Failure prevents the user from completing the task lifecycle.",
+      "smoke": {
+        "selected": true,
+        "reason": "Exercises the basic complete-to-archive path.",
+        "safety_regression": false
+      }
+    }
+  ]
+}
